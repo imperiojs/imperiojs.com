@@ -1,0 +1,30 @@
+{
+  "name": "nexus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "authors": [
+    "Austin <austin.lyon@gmail.com>",
+    "Austin <anwaukoni@gmail.com>",
+    "Matt <mclaugmg@gmail.com>",
+    "Michael <michael.james.blanchard@gmail.com>"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "imperio": "^0.1.0",
+    "ejs": "^2.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.9.2",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-react": "^5.2.2"
+  }
+}
