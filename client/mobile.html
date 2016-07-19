@@ -13,12 +13,13 @@
     I'M A BANANA
   </div>
 
-  <iframe src="http://fluctus.herokuapp.com/"  width="800" height="600">
-    <p>Your browser does not support iframes.</p>
-  </iframe>
-
 </body>
 
+<script>
+  document.domain = document.domain.split(":")[0];
+  console.log(document.domain);
+</script>
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 <script src='./dist/imperio.js'></script>
 <script type="text/javascript" src="./mobile.js"></script>
 </html>

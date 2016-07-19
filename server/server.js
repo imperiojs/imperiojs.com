@@ -35,19 +35,19 @@ app.get('/', imperio.init(),
   }
 );
 // Nonce in URL
-app.get('/:nonce', imperio.init(),
-  (req, res) => {
-    if (req.imperio.isDesktop) {
-      res.sendFile(path.join(`${__dirname}/../client/desktop.html`));
-    } else {
-      if (req.imperio.connected) {
-        res.sendFile(path.join(`${__dirname}/../client/mobileConn.html`));
-      } else {
-        res.sendFile(path.join(`${__dirname}/../client/mobile.html`));
-      }
-    }
-  }
-);
+// app.get('/:nonce', imperio.init(),
+//   (req, res) => {
+//     if (req.imperio.isDesktop) {
+//       res.sendFile(path.join(`${__dirname}/../client/desktop.html`));
+//     } else {
+//       if (req.imperio.connected) {
+//         res.sendFile(path.join(`${__dirname}/../client/mobileConn.html`));
+//       } else {
+//         res.sendFile(path.join(`${__dirname}/../client/mobile.html`));
+//       }
+//     }
+//   }
+// );
 // 404 error on invalid endpoint
 app.get('*', (req, res) => {
   res.status(404)
