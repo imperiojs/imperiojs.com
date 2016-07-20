@@ -22,10 +22,15 @@ const App = React.createClass({
     };
   },
 
+  componentWillMount() {
+    imperio.listenerRoomSetup();
+    imperio.roomUpdate(this.updateConnectionInfo);
+  },
+
   componentDidMount() {
     document.body.addEventListener('click', this.handleSomeTap);
     console.log(`clicked state: ${this.state.clicked}`);
-    imperio.listenerRoomSetup();
+    // imperio.listenerRoomSetup();
     // imperio.roomUpdate(this.updateConnectionInfo);
   },
 
@@ -39,7 +44,6 @@ const App = React.createClass({
 
   handleSomeTap(e) {
     console.log('clicked: ', e);
-    document.body.removeEventListener('click', this.handleSomeTap);
     this.setState({ clicked: !this.state.clicked });
   },
 

@@ -18,12 +18,11 @@ const ConnectionInfo = React.createClass({
         // if (this.props.connections[key] === 'listener') {
         //   connections += <p>{`${key} + ${this.props.connections[key]}`}</p>;
         // }
-        connections.push(<p>{key + ': ' + this.props.connections[key]}</p>);
+        connections.push(<p key={key}>{key + ': ' + this.props.connections[key]}</p>);
       }
     }
     return (
       <div id="connection-wrap">
-        {connections}
         <div id="connection">
           {connections}
           <p>Connect: {imperio.nonce}</p>

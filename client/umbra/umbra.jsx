@@ -26,8 +26,8 @@ const Umbra = React.createClass({
   /* ------------------------------------ */
 
   componentDidMount() {
-    // imperio.gyroscopeListener(this.updateUmbra);
-    // imperio.dataListener(this.setZeros);
+    imperio.gyroscopeListener(this.updateUmbra);
+    imperio.dataListener(this.setZeros);
   },
 
   /* Method provided by react-component-visibility mixin
