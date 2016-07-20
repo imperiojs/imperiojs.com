@@ -18,17 +18,34 @@ const App = React.createClass({
         umbra: false,
         example3: false,
       },
+      clicked: false,
     };
   },
 
-  componentDidMount() {
+  componentWillMount() {
     imperio.listenerRoomSetup();
     imperio.roomUpdate(this.updateConnectionInfo);
+  },
+
+  componentDidMount() {
+    document.body.addEventListener('click', this.handleSomeTap);
+    console.log(`clicked state: ${this.state.clicked}`);
+    // imperio.listenerRoomSetup();
+    // imperio.roomUpdate(this.updateConnectionInfo);
+  },
+
+  componentWillUnmount() {
+    document.body.removeEventListener('click', this.handleSomeTap);
   },
 
   /* ------------------------------------ */
   /* ----       Event Handlers       ---- */
   /* ------------------------------------ */
+
+  handleSomeTap(e) {
+    console.log('clicked: ', e);
+    this.setState({ clicked: !this.state.clicked });
+  },
 
   /* Invoked when listenerRoomSetup / roomUpdate fires
    * Logs the updated state of the socket room
@@ -57,11 +74,13 @@ const App = React.createClass({
   /* ------------------------------------ */
 
   render() {
+    const clickedState = `ClickedState: ${this.state.clicked}`;
     return (
       <div id="app">
         <VisibilityBox isVisible={this.state.isVisible} />
         <ConnectionInfo connections={this.state.connections} />
         <Header />
+        <div>{clickedState}</div>
         <Fluctus visibilityUpdate={this.visibilityUpdate} />
         <Umbra visibilityUpdate={this.visibilityUpdate} />
         <Example3 visibilityUpdate={this.visibilityUpdate} />

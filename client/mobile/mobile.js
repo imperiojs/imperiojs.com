@@ -20,14 +20,14 @@ imperio.emitRoomSetup(function(socket) {
   console.log('ROOMS AFTER MOBILE ROOM SETUP: ', rooms);
 });
 
-document.body.addEventListener('touchend', function() {
+window.document.body.addEventListener('touchend', function ohbaby() {
   if (orient.alpha > 180) orient.alpha = orient.alpha - 360;
   console.log('touch!', orient.alpha, orient.beta, orient.gamma);
   zero.alpha = orient.alpha;
   zero.beta = orient.beta;
   zero.gamma = orient.gamma;
   console.log('zero!', zero.alpha, zero.beta, zero.gamma);
-  imperio.mobileTapShare(tapFeedback, zero);
+  imperio.emitData(tapFeedback, zero);
 });
 
 imperio.emitGyroscope(printGyroData);
