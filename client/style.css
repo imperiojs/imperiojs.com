@@ -1,1 +1,75 @@
+body {
+  margin: 1px;
+}
 
+/* ------------------------------------ */
+/* ----     Main Page Elements     ---- */
+/* ------------------------------------ */
+#connection-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+#connection {
+  padding: 15px 30px;
+  height: auto;
+  border: 1px solid black;
+  border-top: none;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #FFCE7A;
+}
+.visibility-list {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 15px;
+  border: 1px solid black;
+  border-top: none;
+  border-right: none;
+  border-bottom-left-radius: 15px;
+  background-color: #FFCE7A;
+}
+.visibility-list ul {
+  padding: 0;
+  margin: 0;
+}
+.visibility-list ul li {
+  list-style: none;
+}
+
+/* ------------------------------------ */
+/* ----      Example Templates     ---- */
+/* ------------------------------------ */
+div.demo-box {
+  margin: 90px;
+}
+
+/* ------------------------------------ */
+/* ----        Umbra Example       ---- */
+/* ------------------------------------ */
+#caster-wrap {
+  background-color: lightblue;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #555555;
+  border-radius: 20px;
+  -webkit-box-shadow: inset 5px 5px 10px 0px rgba(85,85,85,0.5);
+  -moz-box-shadow: inset 5px 5px 10px 0px rgba(85,85,85,0.5);
+  box-shadow: inset 5px 5px 10px 0px rgba(85,85,85,0.5);
+}
+
+.caster {
+  font-family: cursive;
+  font-size: 150px;
+  font-weight: bold;
+  color: #EEEEEE;
+  text-shadow: 5px 5px 3px rgba(85,85,85,0.5);
+}
