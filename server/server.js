@@ -5,12 +5,14 @@ const server = require('http').Server(app); // eslint-disable-line
 const port = process.env.PORT || 3000;
 const path = require('path');
 const imperio = require('./../../imperioDev/index.js')(server);
+// const imperio = require('imperio')(server);
 
 /* ----------------------------------
  * -----   Global Middleware   ------
  * ---------------------------------- */
 
 app.use(express.static(path.join(`${__dirname}/../../imperioDev`)));
+// app.use(express.static(path.join(`${__dirname}/../node_modules/imperio`)));
 app.use(express.static(path.join(`${__dirname}/../client`)));
 
 /* ----------------------------------
@@ -35,19 +37,21 @@ app.get('/', imperio.init(),
   }
 );
 // Nonce in URL
-// app.get('/:nonce', imperio.init(),
-//   (req, res) => {
-//     if (req.imperio.isDesktop) {
-//       res.sendFile(path.join(`${__dirname}/../client/desktop.html`));
-//     } else {
-//       if (req.imperio.connected) {
-//         res.sendFile(path.join(`${__dirname}/../client/mobileConn.html`));
-//       } else {
-//         res.sendFile(path.join(`${__dirname}/../client/mobile.html`));
-//       }
-//     }
-//   }
-// );
+app.get('/:nonce', imperio.init(),
+  (req, res) => {
+    if (req.imperio.isDesktop) {
+      console.log('I am desktop with NONCE!');
+      res.sendFile(path.join(`${__dirname}/../client/desktop.html`));
+    } else {
+      console.log('I am mobile with NONCE!');
+      if (req.imperio.connected) {
+        res.sendFile(path.join(`${__dirname}/../client/mobileConn.html`));
+      } else {
+        res.sendFile(path.join(`${__dirname}/../client/mobile.html`));
+      }
+    }
+  }
+);
 // 404 error on invalid endpoint
 app.get('*', (req, res) => {
   res.status(404)

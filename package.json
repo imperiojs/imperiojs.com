@@ -16,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0",
-    "imperio": "^0.1.0"
+    "imperio": "^0.2.2"
   },
   "devDependencies": {
     "browserify": "^10.2.4",
