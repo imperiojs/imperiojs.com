@@ -90,9 +90,18 @@ const App = React.createClass({
         <ConnectionInfo connections={this.state.connections} />
         <Header />
         <div>{clickedState}</div>
-        <Fluctus visibilityUpdate={this.visibilityUpdate} />
-        <Umbra visibilityUpdate={this.visibilityUpdate} />
-        <Example3 visibilityUpdate={this.visibilityUpdate} />
+        <Umbra
+          visibilityUpdate={this.visibilityUpdate}
+          visibilityId={'fluctus'}
+        />
+        <Umbra
+          visibilityUpdate={this.visibilityUpdate}
+          visibilityId={'umbra'}
+        />
+        <Umbra
+          visibilityUpdate={this.visibilityUpdate}
+          visibilityId={'example3'}
+        />
       </div>
     );
   },
