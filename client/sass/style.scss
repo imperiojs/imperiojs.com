@@ -1,0 +1,14 @@
+/*! Documents/sass-test/test.scss */
+
+/* Sass variables start with the $ sign,
+...that's about all that makes it different from LESS syntax :p */
+$my_color: #BADA55;
+
+nav {
+  a{
+    color: $my_color;
+    &:hover {
+      color: darken($my_color, 10%);
+    }
+  }
+}
