@@ -1,14 +1,12 @@
 const React = require('react');
-const Visibility = require('react-component-visibility');
 const Caster = require('./caster.jsx');
 const UmbraDescription = require('./umbraDescription.jsx');
 
 const Umbra = React.createClass({
   propTypes: {
     visibilityUpdate: React.PropTypes.func.isRequired,
+    visibilityId: React.PropTypes.string.isRequired,
   },
-
-  mixins: [Visibility],
 
   getInitialState() {
     return {
@@ -28,14 +26,6 @@ const Umbra = React.createClass({
   componentDidMount() {
     imperio.gyroscopeListener(this.updateUmbra);
     imperio.dataListener(this.setZeros);
-  },
-
-  /* Method provided by react-component-visibility mixin
-   * Invokes prop function visibilityUpdate
-   */
-  componentVisibilityChanged() {
-    const update = { umbra: this.state.visible };
-    this.props.visibilityUpdate(update);
   },
 
   setZeros(gyroData) {
@@ -87,7 +77,11 @@ const Umbra = React.createClass({
   render() {
     return (
       <div className="demo-box">
-        <Caster textShadows={this.state.textShadows} />
+        <Caster
+          textShadows={this.state.textShadows}
+          visibilityUpdate={this.props.visibilityUpdate}
+          visibilityId={this.props.visibilityId}
+        />
         <UmbraDescription />
       </div>
     );
