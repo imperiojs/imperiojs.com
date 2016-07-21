@@ -61,6 +61,15 @@ const App = React.createClass({
    * Updates state.isVisible to determine which example is visible
    */
   visibilityUpdate(update) {
+    if (update.hasOwnProperty('umbra')) {
+      if (update.umbra === true) {
+        console.log('emitting startTaps');
+        imperio.emitData(null, { action: 'startTaps' });
+      } else {
+        console.log('emitting stopTaps');
+        imperio.emitData(null, { action: 'stopTaps' });
+      }
+    }
     for (let example in update) { // eslint-disable-line
       if (update.hasOwnProperty(example)) {
         this.state.isVisible[example] = update[example];
