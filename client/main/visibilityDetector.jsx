@@ -1,15 +1,20 @@
 const React = require('react');
 const Visibility = require('react-component-visibility');
 
-const Fluctus = React.createClass({
+const VisibilityDetector = React.createClass({
   propTypes: {
     visibilityUpdate: React.PropTypes.func.isRequired,
+    visibilityId: React.PropTypes.string.isRequired,
   },
 
   mixins: [Visibility],
 
+  /* Method provided by react-component-visibility mixin
+   * Invokes prop function visibilityUpdate
+   */
   componentVisibilityChanged() {
-    const update = { fluctus: this.state.visible };
+    const update = {};
+    update[this.props.visibilityId] = this.state.visible;
     this.props.visibilityUpdate(update);
   },
 
@@ -19,11 +24,9 @@ const Fluctus = React.createClass({
 
   render() {
     return (
-      <div style={{ height: '700px', border: '1px solid black' }}>
-        <div>Hello, I am Fluctus</div>
-      </div>
+      <div className="visibility-detector"></div>
     );
   },
 });
 
-module.exports = Fluctus;
+module.exports = VisibilityDetector;
