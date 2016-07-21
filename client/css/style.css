@@ -1,0 +1,9 @@
+/*! Documents/sass-test/test.scss */
+/* Sass variables start with the $ sign,
+...that's about all that makes it different from LESS syntax :p */
+nav a {
+  color: #BADA55; }
+  nav a:hover {
+    color: #a8cf2d; }
+
+/*# sourceMappingURL=style.css.map */
