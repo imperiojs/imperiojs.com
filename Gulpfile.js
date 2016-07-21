@@ -3,7 +3,7 @@ const gulp = require('gulp');
 const source = require('vinyl-source-stream');
 const browserify = require('browserify');
 const watchify = require('watchify');
-const reactify = require('reactify');
+const babelify = require('babelify');
 const nodemon = require('gulp-nodemon');
 
 gulp.task('browserify', scripts)
@@ -12,7 +12,7 @@ gulp.task('browserify', scripts)
 function scripts() {
   const bundler = browserify({
     entries: ['./client/index.jsx'],
-    transform: [reactify],
+    transform: [[babelify, { presets: ['es2015', 'react'] }]],
     debug: true,
     cache: {},
     packageCache: {},
