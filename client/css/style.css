@@ -7,3 +7,16 @@ nav a {
     color: #a8cf2d; }
 
 /*# sourceMappingURL=style.css.map */
+.jumbotron {
+  margin: 20px 0 0 0;
+  padding: 20px 0px;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.logo{
+  height: 325px;
+  width: 300px;
+  margin-top:10px;
+  margin-bottom:20px;
+}
