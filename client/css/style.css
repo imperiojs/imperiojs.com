@@ -14,9 +14,13 @@ nav a {
   margin-bottom: 0px;
 }
 
-.logo{
+.logo {
   height: 325px;
   width: 300px;
   margin-top:10px;
   margin-bottom:20px;
+}
+
+.second-Level {
+  text-align: center;
 }
