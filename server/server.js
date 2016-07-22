@@ -5,10 +5,10 @@ const server = require('http').Server(app); // eslint-disable-line
 const port = process.env.PORT || 3000;
 const path = require('path');
 
-const imperio = require('./../../imperio/index.js')(server);
+// const imperio = require('./../../imperio/index.js')(server);
 
 // const imperio = require('./../../imperioDev/index.js')(server);
-// const imperio = require('imperio')(server);
+const imperio = require('imperio')(server);
 
 
 /* ----------------------------------
@@ -16,10 +16,10 @@ const imperio = require('./../../imperio/index.js')(server);
  * ---------------------------------- */
 
 
-app.use(express.static(path.join(`${__dirname}/../../imperio`)));
+// app.use(express.static(path.join(`${__dirname}/../../imperio`)));
 
 // app.use(express.static(path.join(`${__dirname}/../../imperioDev`)));
-// app.use(express.static(path.join(`${__dirname}/../node_modules/imperio`)));
+app.use(express.static(path.join(`${__dirname}/../node_modules/imperio`)));
 app.use(express.static(path.join(`${__dirname}/../client`)));
 
 /* ----------------------------------
