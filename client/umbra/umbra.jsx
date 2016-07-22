@@ -36,7 +36,6 @@ const Umbra = React.createClass({
   },
 
   updateUmbra(gyroObj) {
-    console.log('updating umbra');
     // actual alpha & beta will be between 0 and 180/-180, and offset by zeros
     const actual = this.orientRawGyroData(gyroObj);
     const offsetInterval = 8;

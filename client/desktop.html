@@ -98,6 +98,16 @@
 <script type="text/javascript">
   imperio.listenerRoomSetup();
   imperio.roomUpdate(function(roomData) {console.log('roomData::::::::', roomData)});
+
+  imperio.panListener(handleScrollPan);
+
+  function handleScrollPan(event) {
+    console.log(event);
+    if (event.scroll) {
+      if (event.additionalEvent === 'pandown') window.scrollBy(0, 20);
+      if (event.additionalEvent === 'panup') window.scrollBy(0, -20);
+    }
+  }
 </script>
 <script type="text/javascript" src="./build/bundle.js"></script>
 </body>
