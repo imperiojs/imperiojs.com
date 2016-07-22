@@ -48,6 +48,9 @@ body {
   left: 50%;
   top: 50%;
 }
+#umbraMobile {
+  display: none;
+}
 
 /* ------------------------------------ */
 /* ----      Example Templates     ---- */

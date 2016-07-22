@@ -18,7 +18,7 @@ function handleGyro(event) {
   angles.innerHTML = `${event.alpha}&#176;`;
 }
 
-imperio.dataListener(dataHandler);
+// imperio.dataListener(dataHandler);
 
 //manipulate data based on browser state
 function dataHandler(data) {
