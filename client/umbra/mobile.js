@@ -14,30 +14,6 @@ var orient = {
 };
 var actual = {};
 
-imperio.emitRoomSetup(function(socket) {
-  console.log('socket', socket);
-  var rooms = socket.rooms || 'no rooms';
-  console.log('ROOMS AFTER MOBILE ROOM SETUP: ', rooms);
-});
-
-imperio.dataListener(handleUmbraEmitters);
-
-function handleUmbraEmitters(actionObj) {
-  if (actionObj && actionObj.hasOwnProperty('action')) {
-    if (actionObj.action === 'startUmbra') {
-      console.log('adding Umbra event listeners');
-      document.body.addEventListener('touchend', emitNewZeroValues);
-      imperio.emitGyroscope.start(printGyroData);
-    } else if (actionObj.action === 'stopUmbra') {
-      console.log('removing Umbra listeners');
-      document.body.removeEventListener('touchend', emitNewZeroValues);
-      imperio.emitGyroscope.remove(printGyroData);
-    }
-  } else {
-    console.log('no actionObj');
-  }
-}
-
 function emitNewZeroValues() {
   if (orient.alpha > 180) orient.alpha = orient.alpha - 360;
   console.log('touch!', orient.alpha, orient.beta, orient.gamma);
@@ -69,8 +45,8 @@ function printGyroData(gyroObj) {
 }
 
 function tapFeedback() {
-  document.body.style.backgroundColor = 'lightblue';
+  document.body.style.backgroundColor = 'lightgreen';
   setTimeout(function() {
-    document.body.style.backgroundColor = '#c93e3e';
+    document.body.style.backgroundColor = 'lightblue';
   }, 200);
 }
