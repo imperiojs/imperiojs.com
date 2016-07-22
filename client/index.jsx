@@ -85,7 +85,6 @@ const App = React.createClass({
       <div id="app">
         <VisibilityBox isVisible={this.state.isVisible} />
         <ConnectionInfo connections={this.state.connections} />
-        <Header />
         <Iacto
           connections={this.state.connections}
           visibilityUpdate={this.visibilityUpdate}

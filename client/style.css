@@ -13,16 +13,15 @@ body {
   width: 100vw;
   display: flex;
   justify-content: center;
-  z-index: 2;
+  z-index: 1040;
 }
 #connection {
   padding: 15px 30px;
   height: auto;
-  border: 1px solid black;
-  border-top: none;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: #FFCE7A;
+  color: #333333;
+  font-family: "Helvetica", sans-serif;
+  font-size: 18px;
+  line-height: 20px;
 }
 .visibility-list {
   position: fixed;
@@ -34,7 +33,8 @@ body {
   border-right: none;
   border-bottom-left-radius: 15px;
   background-color: #FFCE7A;
-  z-index: 2;
+  z-index: 100001;
+  display: none;
 }
 .visibility-list ul {
   padding: 0;
@@ -47,6 +47,9 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
+}
+#umbraMobile {
+  display: none;
 }
 
 /* ------------------------------------ */
@@ -88,7 +91,9 @@ div.demo-box {
 /* ------------------------------------ */
 /* ----        Iacto Example       ---- */
 /* ------------------------------------ */
-
+#app {
+  margin-top: 40px;
+}
 #current-event {
   display:block;
   height:80px;
