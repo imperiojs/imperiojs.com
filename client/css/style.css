@@ -24,3 +24,16 @@ nav a {
 .second-Level {
   text-align: center;
 }
+
+.middleFours {
+  display: flex;
+  flex-direction: column;
+}
+
+.center-icon {
+  margin: auto;
+}
+
+#info-section {
+  padding: 50px 0 0 0;
+}
