@@ -1,0 +1,39 @@
+/*! Documents/sass-test/test.scss */
+/* Sass variables start with the $ sign,
+...that's about all that makes it different from LESS syntax :p */
+nav a {
+  color: #BADA55; }
+  nav a:hover {
+    color: #a8cf2d; }
+
+/*# sourceMappingURL=style.css.map */
+.jumbotron {
+  margin: 20px 0 0 0;
+  padding: 20px 0px;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.logo {
+  height: 325px;
+  width: 300px;
+  margin-top:10px;
+  margin-bottom:20px;
+}
+
+.second-Level {
+  text-align: center;
+}
+
+.middleFours {
+  display: flex;
+  flex-direction: column;
+}
+
+.center-icon {
+  margin: auto;
+}
+
+#info-section {
+  padding: 50px 0 0 0;
+}
