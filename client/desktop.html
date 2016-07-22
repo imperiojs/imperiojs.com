@@ -9,6 +9,7 @@
   <meta name="author" content="">
 ​
   <title>Imperiojs Library</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
@@ -23,7 +24,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand">imperio</a>
+        <a class="navbar-brand">Imperio</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
@@ -36,7 +37,7 @@
 
   <div id="home" class="jumbotron">
       <div class="container">
-        <img class="logo" src="static/react-d3-library-logo_720.png" alt="react-d3-library">
+        <img class="logo" src="" alt="react-d3-library">
         <p>An SDK that bridges the gap between mobile and desktop</p>
         <p><a class="btn btn-danger btn-lg" href="https://github.com/react-d3-library/react-d3-library" role="button">Get Started &raquo;</a></p>
       </div>
@@ -44,29 +45,34 @@
     <div id="info-section">
         <div class="container homepage">
           <div class="row">
-            <div class="col-md-4">
-              <span class="fa-stack fa-4x">
+            <div class="col-md-4 middleFours">
+              <span class="fa-stack fa-4x center-icon">
                 <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-code fa-stack-1x fa-inverse"></i>
+                <i class="fa fa-tasks fa-stack-1x fa-inverse"></i>
               </span>
-              <h3>Control</h3>
-              <p>Instantiate library in one line of code</p>
+              <h3 class="second-Level">Control</h3>
+              <p class="second-Level">We provide methods to read from the sharing device and send accelerometer, gyroscope, and gps data.
+                All emitter methods will dynamically switch between WebSockets and WebRTC for sending data.
+              </p>
             </div>
-            <div class="col-md-4">
-              <span class="fa-stack fa-4x">
+            <div class="col-md-4 middleFours">
+              <span class="fa-stack fa-4x center-icon">
                 <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-cogs fa-stack-1x fa-inverse"></i>
+                <i class="fa fa-link fa-stack-1x fa-inverse"></i>
               </span>
-              <h3>Connect</h3>
-              <p>Connect your socket clients through sockets and WebRTC</p>
+              <h3 class="second-Level">Connect</h3>
+              <p class="second-Level">The library is set up to use WebSockets and optionally WebRTC. The listening device (desktop)
+                will create a unique room that emitting devices (mobile) join when they load the page.
+              </p>
            </div>
-            <div class="col-md-4">
-              <span class="fa-stack fa-4x">
+            <div class="col-md-4 middleFours">
+              <span class="fa-stack fa-4x center-icon">
                 <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-area-chart  fa-stack-1x fa-inverse"></i>
+                <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
               </span>
-              <h3>Authorize</h3>
-              <p>Instantiate middleware in two lines of code</p>
+              <h3 class="second-Level">Authorize</h3>
+              <p class="second-Level">Several methods of authorization between clients have been implemented. These authorization methods
+                can be used as a route or a passcode to approve clients in a socket room.</p>
             </div>
           </div>
 
