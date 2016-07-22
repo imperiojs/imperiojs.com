@@ -6,30 +6,46 @@
   <meta name=viewport content='width=300'>
   <title>Umbra</title>
   <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="stylesheet" type="text/css" href="./iacto/mobileStyle.css">
 </head>
 
 <body>
-  <h1>lux</h1>
-  <table cellspacing="0">
-    <tr>
-      <td>axis</td>
-      <td>angle</td>
-    </tr>
-    <tr class="a-row">
-      <td>alpha</td>
-      <td id="alpha"></td>
-    </tr>
-    <tr class="b-row">
-      <td>beta</td>
-      <td id="beta"></td>
-    </tr>
-    <tr class="g-row">
-      <td>gamma</td>
-      <td id="gamma"></td>
-    </tr>
-  </table>
+  <!-- ~*~*~*~*~*~*~ UMBRA EXAMPLE ~*~*~*~*~*~*~*~ -->
+  <div id='umbraMobile'>
+    <h1>lux</h1>
+    <table cellspacing="0">
+      <tr>
+        <td>axis</td>
+        <td>angle</td>
+      </tr>
+      <tr class="a-row">
+        <td>alpha</td>
+        <td id="alpha"></td>
+      </tr>
+      <tr class="b-row">
+        <td>beta</td>
+        <td id="beta"></td>
+      </tr>
+      <tr class="g-row">
+        <td>gamma</td>
+        <td id="gamma"></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ~*~*~*~*~*~*~ IACTO EXAMPLE ~*~*~*~*~*~*~*~ -->
+  <div id="mobile-div">
+    <h1>imperioJS</h1>
+    <div id="swipe-box" class="gestures">SWIPE</div>
+    <div id="pan-box" class="gestures">PAN</div>
+    <div id="pinch-box" class="gestures">PINCH</div>
+    <div id="rotate-box" class="gestures">ROTATE</div>
+    <div id="tap-box" class="gestures">TAP</div>
+    <div id="angles"></div>
+  </div>
 </body>
 
 <script src='./dist/imperio.min.js'></script>
-<script type="text/javascript" src="./mobile/mobile.js"></script>
+<script type="text/javascript" src="./umbra/mobile.js"></script>
+<script type="text/javascript" src="./iacto/mobile.js"></script>
 </html>
