@@ -21,32 +21,33 @@ imperio.emitRoomSetup(function(socket) {
 });
 
 imperio.dataListener(handleUmbraEmitters);
+
 function handleUmbraEmitters(actionObj) {
   if (actionObj && actionObj.hasOwnProperty('action')) {
-    console.log('actionObj: ', actionObj);
-    if (actionObj.action === 'startTaps') {
-      console.log('adding touchend listener');
-      window.document.body.addEventListener('touchend', touchZeros);
-    } else {
-      console.log('removing touchend listener');
-      window.document.body.removeEventListener('touchend', touchZeros);
+    if (actionObj.action === 'startUmbra') {
+      console.log('adding Umbra event listeners');
+      document.body.addEventListener('touchend', emitNewZeroValues);
+      imperio.emitGyroscope.start(printGyroData);
+    } else if (actionObj.action === 'stopUmbra') {
+      console.log('removing Umbra listeners');
+      document.body.removeEventListener('touchend', emitNewZeroValues);
+      imperio.emitGyroscope.remove(printGyroData);
     }
   } else {
     console.log('no actionObj');
   }
 }
 
-function touchZeros(e) {
+function emitNewZeroValues() {
   if (orient.alpha > 180) orient.alpha = orient.alpha - 360;
   console.log('touch!', orient.alpha, orient.beta, orient.gamma);
+  zero.action = 'zero';
   zero.alpha = orient.alpha;
   zero.beta = orient.beta;
   zero.gamma = orient.gamma;
   console.log('zero!', zero.alpha, zero.beta, zero.gamma);
   imperio.emitData(tapFeedback, zero);
 }
-
-// imperio.emitGyroscope(printGyroData);
 
 function printGyroData(gyroObj) {
   // store orientation in global object to help capture zero orientation

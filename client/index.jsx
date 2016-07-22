@@ -9,6 +9,8 @@ const Fluctus = require('./fluctus/fluctus.jsx');
 const Umbra = require('./umbra/umbra.jsx');
 const Example3 = require('./example3/example3.jsx');
 
+imperio.listenerRoomSetup();
+
 const App = React.createClass({
   getInitialState() {
     return {
@@ -18,34 +20,16 @@ const App = React.createClass({
         umbra: false,
         example3: false,
       },
-      clicked: false,
     };
   },
 
-  componentWillMount() {
-    imperio.listenerRoomSetup();
-    imperio.roomUpdate(this.updateConnectionInfo);
-  },
-
   componentDidMount() {
-    document.body.addEventListener('click', this.handleSomeTap);
-    console.log(`clicked state: ${this.state.clicked}`);
-    // imperio.listenerRoomSetup();
-    // imperio.roomUpdate(this.updateConnectionInfo);
-  },
-
-  componentWillUnmount() {
-    document.body.removeEventListener('click', this.handleSomeTap);
+    imperio.roomUpdate(this.updateConnectionInfo);
   },
 
   /* ------------------------------------ */
   /* ----       Event Handlers       ---- */
   /* ------------------------------------ */
-
-  handleSomeTap(e) {
-    console.log('clicked: ', e);
-    this.setState({ clicked: !this.state.clicked });
-  },
 
   /* Invoked when listenerRoomSetup / roomUpdate fires
    * Logs the updated state of the socket room
@@ -57,17 +41,19 @@ const App = React.createClass({
     }
   },
 
-  /* Invoked from any rendered examples upon the example becoming visible
+  /**
+   * Invoked from any rendered examples upon the example becoming visible
    * Updates state.isVisible to determine which example is visible
+   * @param {object} update object
    */
   visibilityUpdate(update) {
     if (update.hasOwnProperty('umbra')) {
       if (update.umbra === true) {
-        console.log('emitting startTaps');
-        imperio.emitData(null, { action: 'startTaps' });
+        console.log('emitting startUmbra');
+        imperio.emitData(null, { action: 'startUmbra' });
       } else {
-        console.log('emitting stopTaps');
-        imperio.emitData(null, { action: 'stopTaps' });
+        console.log('emitting stopUmbra');
+        imperio.emitData(null, { action: 'stopUmbra' });
       }
     }
     for (let example in update) { // eslint-disable-line
@@ -77,6 +63,10 @@ const App = React.createClass({
     }
     this.setState({ isVisible: this.state.isVisible });
   },
+
+  // toggle(exmples) {
+  //   for (let example of )
+  // }
 
   /* ------------------------------------ */
   /* ----           Render           ---- */
