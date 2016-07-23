@@ -156,7 +156,7 @@ const Iacto = React.createClass({
   },
 
   handlePan(event) {
-    if (this.state.gestureMode) {
+    if (this.state.gestureMode && !event.scroll) {
       const xLoc = this.state.lastPanLocation[0] + event.deltaX;
       const yLoc = this.state.lastPanLocation[1] + event.deltaY;
       this.setState({

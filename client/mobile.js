@@ -1,5 +1,33 @@
 var scrollBar = document.getElementById('scroll-bar');
 
+document.addEventListener('ontouchstart', function(e) {
+  e.preventDefault(); 
+}, false);
+document.addEventListener('ontouchmove', function(e) {
+  console.log
+  e.preventDefault(); 
+}, false);
+
+// window.blockMenuHeaderScroll = false;
+// $(window).on('touchstart', function(e)
+// {
+//     if ($(e.target).closest('#mobileMenuHeader').length == 1)
+//     {
+//         blockMenuHeaderScroll = true;
+//     }
+// });
+// $(window).on('touchend', function()
+// {
+//     blockMenuHeaderScroll = false;
+// });
+// $(window).on('touchmove', function(e)
+// {
+//     if (blockMenuHeaderScroll)
+//     {
+//         e.preventDefault();
+//     }
+// });
+
 function handleScrollPan(event) {
   event.scroll = true;
   return event;
