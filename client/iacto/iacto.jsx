@@ -56,7 +56,7 @@ const Iacto = React.createClass({
 
   measureAccelAndRemoveGestures(event) {
     if (!this.state.gyroscopeOn && this.state.gestureMode) {
-      if (event.x > 30 || event.y > 30) {
+      if (event.x > 20 || event.y > 20) {
         this.setState({
           gestureMode: false,
           lastPanLocation: [0, 0],
@@ -78,7 +78,7 @@ const Iacto = React.createClass({
         setTimeout(this.startRotation, 3000);
       }
     } else if (this.state.gyroscopeOn && !this.state.gestureMode) {
-      if (event.x > 30 || event.y > 30) {
+      if (event.x > 20 || event.y > 20) {
         this.setState({
           gyroscopeOn: false,
           carouselContCSS: gyroStyles.gyroOff.carouselContainer,
@@ -156,7 +156,7 @@ const Iacto = React.createClass({
   },
 
   handlePan(event) {
-    if (this.state.gestureMode) {
+    if (this.state.gestureMode && !event.scroll) {
       const xLoc = this.state.lastPanLocation[0] + event.deltaX;
       const yLoc = this.state.lastPanLocation[1] + event.deltaY;
       this.setState({
@@ -248,17 +248,17 @@ const Iacto = React.createClass({
       if (this.props.connections[key] === 'emitter') emitter = true;
     }
     if (!emitter) {
-      instructions += 'Connect your mobile device to interact through imperio';
+      instructions += 'Connect your mobile device to interact';
     } else {
       if (this.state.gyroscopeOn) {
-        instructions += 'Flick device to go back to enable gestures';
+        instructions += 'Wave device to enable gestures';
       } else {
-        instructions += 'Flick device to go to enable sensors';
+        instructions += 'Wave device to enable sensors';
       }
     }
     return (
       <div id="iacto-container">
-        <p id="gesture-id">{this.state.currentGesture ? this.state.currentGesture : 'imperio'}</p>
+        <p id="gesture-id">{this.state.currentGesture ? this.state.currentGesture : 'imperioJS'}</p>
         <Gestures
           currentPanLocation={this.state.currentPanLocation}
           currentRotateAngle={this.state.currentRotateAngle}

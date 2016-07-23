@@ -1,18 +1,54 @@
+var scrollBar = document.getElementById('scroll-bar');
+
+document.addEventListener('ontouchstart', function(e) {
+  e.preventDefault(); 
+}, false);
+document.addEventListener('ontouchmove', function(e) {
+  console.log
+  e.preventDefault(); 
+}, false);
+
+// window.blockMenuHeaderScroll = false;
+// $(window).on('touchstart', function(e)
+// {
+//     if ($(e.target).closest('#mobileMenuHeader').length == 1)
+//     {
+//         blockMenuHeaderScroll = true;
+//     }
+// });
+// $(window).on('touchend', function()
+// {
+//     blockMenuHeaderScroll = false;
+// });
+// $(window).on('touchmove', function(e)
+// {
+//     if (blockMenuHeaderScroll)
+//     {
+//         e.preventDefault();
+//     }
+// });
+
+function handleScrollPan(event) {
+  event.scroll = true;
+  return event;
+}
+
+imperio.gesture('pan', scrollBar, null, handleScrollPan);
+
 // Connect to imperio socket room
 imperio.emitRoomSetup(function(socket) {
   console.log('socket', socket);
   var rooms = socket.rooms || 'no rooms';
   console.log('ROOMS AFTER MOBILE ROOM SETUP: ', rooms);
 });
-console.log('what the hellllll');
+
 // emitData listener from desktop - fired when examples scroll into view
 imperio.dataListener(handleImperioEmitters);
 
 // turns on and off mobile emitters conditionally
 function handleImperioEmitters(actionObj) {
-  console.log('handleImperioEmitters called!');
+  console.log(actionObj);
   if (actionObj && actionObj.hasOwnProperty('action')) {
-    console.log('action object:', actionObj);
     // ------ Umbra Emitters ------
     if (actionObj.action === 'start_umbra') {
       console.log('adding Umbra event listeners');

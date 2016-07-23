@@ -1,3 +1,16 @@
+/*persistent swipe bar on right side*/
+#scroll-bar {
+  position: fixed;
+  top: 50%;
+  width: 3.5em;
+  background-color: red;
+  text-align: right;
+  right:0;
+  top:12%;
+  height:75%;
+}
+
+
 /*mobile div for gestures*/
 * {
   font-family: 'Helvetica';
@@ -34,7 +47,7 @@ h1 {
 
 .gestures:hover {
   background-color:rgb(255, 206, 0);
-  color:rgb(0, 37, 105);
+  color:rgb(0, 37, 105) !important;
   font-weight:700;
   font-size:25px;
 }
