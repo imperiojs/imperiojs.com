@@ -1,0 +1,39 @@
+
+
+
+
+#swipe-box {
+  border-top-right-radius:1em;
+  border-top-left-radius:1em;
+}
+
+#pan-box {
+  border-top:0px;
+}
+
+#pinch-box {
+  border-top:0px;
+}
+
+#rotate-box {
+  border-top:0px;
+}
+
+#tap-box {
+  border-top:0px;
+  border-bottom-right-radius:1em;
+  border-bottom-left-radius:1em;
+}
+
+/*styling for gyroscopedata*/
+#angles {
+  transition:borderColor 2s, color 2s, height 2s, width 2s, fontSize 2s;
+  display:flex;
+  font-weight:200;
+  font-size:0em;
+  justify-content:center;
+  align-items: center;
+  height: 0em;
+  width: 0em;
+  border-radius:1.5em;
+}
