@@ -51,7 +51,8 @@ h1 {
   align-items: center;
   text-align:center;
   color:rgb(255, 206, 0);
-  height:95%;
+  height:95vh;
+  /*flex-shrink:0;*/
 }
 
 .gestures {
