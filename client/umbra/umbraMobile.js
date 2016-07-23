@@ -14,39 +14,16 @@ var orient = {
 };
 var actual = {};
 
-imperio.emitRoomSetup(function(socket) {
-  console.log('socket', socket);
-  var rooms = socket.rooms || 'no rooms';
-  console.log('ROOMS AFTER MOBILE ROOM SETUP: ', rooms);
-});
-
-imperio.dataListener(handleUmbraEmitters);
-function handleUmbraEmitters(actionObj) {
-  if (actionObj && actionObj.hasOwnProperty('action')) {
-    console.log('actionObj: ', actionObj);
-    if (actionObj.action === 'startTaps') {
-      console.log('adding touchend listener');
-      window.document.body.addEventListener('touchend', touchZeros);
-    } else {
-      console.log('removing touchend listener');
-      window.document.body.removeEventListener('touchend', touchZeros);
-    }
-  } else {
-    console.log('no actionObj');
-  }
-}
-
-function touchZeros(e) {
+function emitNewZeroValues() {
   if (orient.alpha > 180) orient.alpha = orient.alpha - 360;
   console.log('touch!', orient.alpha, orient.beta, orient.gamma);
+  zero.action = 'zero';
   zero.alpha = orient.alpha;
   zero.beta = orient.beta;
   zero.gamma = orient.gamma;
   console.log('zero!', zero.alpha, zero.beta, zero.gamma);
   imperio.emitData(tapFeedback, zero);
 }
-
-// imperio.emitGyroscope(printGyroData);
 
 function printGyroData(gyroObj) {
   // store orientation in global object to help capture zero orientation
@@ -68,8 +45,8 @@ function printGyroData(gyroObj) {
 }
 
 function tapFeedback() {
-  document.body.style.backgroundColor = 'lightblue';
+  document.body.style.backgroundColor = 'lightgreen';
   setTimeout(function() {
-    document.body.style.backgroundColor = '#c93e3e';
+    document.body.style.backgroundColor = 'lightblue';
   }, 200);
 }

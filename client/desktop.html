@@ -1,19 +1,114 @@
 <!DOCTYPE html>
 <html>
-
+​
 <head>
   <meta charset="utf-8">
-  <title>Imperio</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="imperiojs developer library">
+  <meta name="author" content="Michael Blanchard, Matt McLaughlin, Austin Lyon, Austin Nwaukoni">
+  <link rel="shortcut icon" href="favicon.ico">
+  <title>imperiojs Library</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
   <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
-
-<body>
-
-  <div id='content'>
+​
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">imperio</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://github.com/imperiojs/imperio/wiki">DOCUMENTATION</a></li>
+          <li><a href="https://github.com/imperiojs/imperio">GITHUB</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 
-</body>
+  <div id="home" class="jumbotron">
+      <div class="container">
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Symbol_from_The_Incredibles_logo.svg" alt="imperiojs">
+        <p>A library that bridges the gap between mobile and desktop</p>
+        <p><a class="btn btn-danger btn-lg" href="https://github.com/imperiojs/imperio" role="button">Get Started &raquo;</a></p>
+      </div>
+  </div>
+    <div id="info-section">
+        <div class="container homepage">
+          <div class="row">
+            <div class="col-md-4 middleFours">
+              <span class="fa-stack fa-4x center-icon">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-tasks fa-stack-1x fa-inverse"></i>
+              </span>
+              <h3 class="second-Level">Control</h3>
+              <p class="second-Level">We provide methods to read from the sharing device and send accelerometer, gyroscope, and gps data.
+                All emitter methods will dynamically switch between WebSockets and WebRTC for sending data.
+              </p>
+            </div>
+            <div class="col-md-4 middleFours">
+              <span class="fa-stack fa-4x center-icon">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-link fa-stack-1x fa-inverse"></i>
+              </span>
+              <h3 class="second-Level">Connect</h3>
+              <p class="second-Level">The library is set up to use WebSockets and optionally WebRTC. The listening device (desktop)
+                will create a unique room that emitting devices (mobile) join when they load the page.
+              </p>
+           </div>
+            <div class="col-md-4 middleFours">
+              <span class="fa-stack fa-4x center-icon">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+              </span>
+              <h3 class="second-Level">Authorize</h3>
+              <p class="second-Level">Several methods of authorization between clients have been implemented. These authorization methods
+                can be used as a route or a passcode to approve clients in a socket room.</p>
+            </div>
+          </div>
 
+
+  <div id='content' style=""></div>
+
+
+  <div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+      <div class="container">
+          <div class="navbar-text pull-left">
+            <p>License MIT &copy imperioJS 2016</p>
+          </div>
+          <div class="navbar-text pull-right">
+            <p> Michael Blanchard, Austin Lyon, Matt McLaughlin, and Austin Nwaukoni contributors</p>
+          </div>
+      </div>
+  </div>
+  <a href="https://github.com/imperiojs/imperio"><img style="position: fixed; top: 3.6em; right: 0; border: 0; z-index:100000;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src='./dist/imperio.min.js'></script>
+<script type="text/javascript">
+  imperio.listenerRoomSetup();
+  imperio.roomUpdate(function(roomData) {console.log('roomData::::::::', roomData)});
+
+  imperio.panListener(handleScrollPan);
+
+  function handleScrollPan(event) {
+    console.log(event);
+    if (event.scroll) {
+      if (event.additionalEvent === 'pandown') window.scrollBy(0, 20);
+      if (event.additionalEvent === 'panup') window.scrollBy(0, -20);
+    }
+  }
+</script>
 <script type="text/javascript" src="./build/bundle.js"></script>
+</body>
 </html>

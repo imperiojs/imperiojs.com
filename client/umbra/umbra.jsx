@@ -29,12 +29,13 @@ const Umbra = React.createClass({
   },
 
   setZeros(gyroData) {
-    console.log('We got the tap data!', gyroData);
-    this.setState({ zero: gyroData });
+    if (gyroData.hasOwnProperty('action') && gyroData.action === 'zero') {
+      console.log('We got the tap data!', gyroData);
+      this.setState({ zero: gyroData });
+    }
   },
 
   updateUmbra(gyroObj) {
-    console.log('updating umbra: ', gyroObj);
     // actual alpha & beta will be between 0 and 180/-180, and offset by zeros
     const actual = this.orientRawGyroData(gyroObj);
     const offsetInterval = 8;
