@@ -1,7 +1,3 @@
-
-
-
-
 #swipe-box {
   border-top-right-radius:1em;
   border-top-left-radius:1em;
@@ -35,5 +31,6 @@
   align-items: center;
   height: 0em;
   width: 0em;
-  border-radius:1.5em;
+  border-radius:1em;
+  flex-grow:1;
 }
