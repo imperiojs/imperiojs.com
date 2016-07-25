@@ -83,11 +83,8 @@
 
   <div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
       <div class="container">
-          <div class="navbar-text pull-left">
-            <p>License MIT &copy imperioJS 2016</p>
-          </div>
           <div class="navbar-text pull-right">
-            <p> Michael Blanchard, Austin Lyon, Matt McLaughlin, and Austin Nwaukoni contributors</p>
+            <p> <a href="https://github.com/miblanchard" role="button">Michael Blanchard</a>,<a href="https://github.com/austinlyon" role="button"> Austin Lyon</a>, <a href="https://github.com/mclaugmg" role="button">Matt McLaughlin</a>, and <a href="https://github.com/anwaukoni" role="button">Austin Nwaukoni</a> contributors</p>
           </div>
       </div>
   </div>
@@ -97,12 +94,10 @@
 <script src='./dist/imperio.min.js'></script>
 <script type="text/javascript">
   imperio.listenerRoomSetup();
-  imperio.roomUpdate(function(roomData) {console.log('roomData::::::::', roomData)});
-
+  imperio.roomUpdate();
   imperio.panListener(handleScrollPan);
 
   function handleScrollPan(event) {
-    console.log(event);
     if (event.scroll) {
       if (event.additionalEvent === 'pandown') window.scrollBy(0, 20);
       if (event.additionalEvent === 'panup') window.scrollBy(0, -20);

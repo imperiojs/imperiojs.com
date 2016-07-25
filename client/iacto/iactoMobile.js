@@ -6,8 +6,6 @@ var tapDiv = document.getElementById('tap-box');
 var gestures = document.getElementsByClassName('gestures');
 var angles = document.getElementById('angles');
 
-console.log('got iacto mobile file');
-
 imperio.gesture('swipe', swipeDiv);
 imperio.gesture('pinch', pinchDiv);
 imperio.gesture('pan', panDiv);
@@ -25,7 +23,6 @@ imperio.dataListener(dataHandler);
 //manipulate data based on browser state
 function dataHandler(data) {
   if (data && data.hasOwnProperty('action') && data.action === 'gyroToggle') {
-
     var timing = 2, blue = 'rgb(0, 37, 105)', gold = 'rgb(255, 206, 0)';
     if (data.gyroState === 'on') {
       var gyroSize = '3em';
@@ -48,7 +45,7 @@ function dataHandler(data) {
         gestures[i].style.borderColor = gold;
         gestures[i].style.color = gold;
       }
-      setTimeout(setDelayedStyle, 1750);
+      setTimeout(setDelayedStyleOff, 1750);
       angles.style.border = `${blue} solid`;
       angles.style.color = blue;
       angles.style.fontSize = '0px';
@@ -58,9 +55,14 @@ function dataHandler(data) {
   }
 }
 
-function setDelayedStyle() {
+function setDelayedStyleOn() {
+  // .style.display = 'block';
+}
+
+function setDelayedStyleOff() {
   var timing = 0.25;
   for (var i = 0; i < gestures.length; i++) {
     gestures[i].style.transition = `height ${timing}s, border ${timing}s, color ${timing}s`;
+    // gestures[i].style.display = 'flex';
   }
 }

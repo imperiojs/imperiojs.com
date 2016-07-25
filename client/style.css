@@ -84,9 +84,6 @@ div.demo-box {
   color: #EEEEEE;
   text-shadow: 5px 5px 3px rgba(85,85,85,0.5);
 }
-#umbraMobile {
-  background-color: lightblue;
-}
 
 /* ------------------------------------ */
 /* ----        Iacto Example       ---- */
@@ -161,31 +158,31 @@ div.demo-box {
 #swipe-example {
   transform: translate(0px, 0px) rotate(0deg) scale(1);
   transition:transform 0.25s;
-  background-image: url("http://hammerjs.github.io/assets/img/swipe.svg");
+  background-image: url("https://hammerjs.github.io/assets/img/swipe.svg");
 }
 
 #pinch-example {
   transform: translate(0px, 0px) rotate(0deg) scale(1);
-  background-image: url("http://hammerjs.github.io/assets/img/pinch.svg");
+  background-image: url("https://hammerjs.github.io/assets/img/pinch.svg");
 }
 
 #pan-example {
   transform: translate(0px, 0px) rotate(0deg) scale(1);
-  background-image: url("http://hammerjs.github.io/assets/img/pan.svg");
+  background-image: url("https://hammerjs.github.io/assets/img/pan.svg");
 }
 
 #rotate-example {
   transform: translate(0px, 0px) rotate(0deg) scale(1);
-  background-image: url("http://hammerjs.github.io/assets/img/rotate.svg");
+  background-image: url("https://hammerjs.github.io/assets/img/rotate.svg");
 }
 
 #press-example {
   transform: translate(0px, 0px) rotate(0deg) scale(1);
-  background-image: url("http://hammerjs.github.io/assets/img/press.svg");
+  background-image: url("https://hammerjs.github.io/assets/img/press.svg");
 }
 
 #tap-example {
   transform: translate(0px, 0px) rotate(0deg) scale(1);
-  background-image: url("http://hammerjs.github.io/assets/img/tap.svg");
+  background-image: url("https://hammerjs.github.io/assets/img/tap.svg");
   transition:height 0.25s, width 0.25s;
 }
