@@ -69,10 +69,10 @@ const App = React.createClass({
       if (update.hasOwnProperty(example)) {
         if (update[example] === true) {
           console.log(`emitting start_${example}`);
-          imperio.emitData(null, { action: `start_${example}` });
+          imperio.emitData(null, { [example]: true });
         } else {
           console.log(`emitting stop_${example}`);
-          imperio.emitData(null, { action: `stop_${example}` });
+          imperio.emitData(null, { [example]: false });
         }
       }
     }

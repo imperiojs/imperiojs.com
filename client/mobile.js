@@ -15,6 +15,8 @@ var browserState = {
 imperio.dataListener(updateBrowserState);
 
 function updateBrowserState(browserViewData) {
+  console.log('state update recevied:');
+  console.log(browserViewData);
   if (browserViewData.iacto) browserState.iacto.on = true;
   else browserState.iacto.on = false;
   if (browserViewData.iactoGyro) browserState.iacto.gyro = true;
@@ -23,14 +25,16 @@ function updateBrowserState(browserViewData) {
   else browserState.umbra = false;
   if (browserViewData.fluctus) browserState.fluctus = true;
   else browserState.fluctus = false;
+  console.log(browserState);
   renderMobile();
 }
 
 // turns on and off mobile emitters conditionally
 function renderMobile() {
   if (browserState.iacto.on) {
+    console.log('rendering iacto');
     renderIacto();
-    removeBase();      
+    removeBase();
     if (!browserState.iacto.gyro) turnGyroOff();
     else turnGyroOn();
   } else removeIacto();

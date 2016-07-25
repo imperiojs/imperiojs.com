@@ -46,8 +46,6 @@ const Iacto = React.createClass({
     imperio.tapListener(this.handleTap);
     imperio.gyroscopeListener(this.gyroFunctions);
     imperio.accelerationListener(this.measureAccelAndRemoveGestures);
-    // imperio.pressListener(this.handlePress);
-    // imperio.pressUpListener(this.handlePressUp);
   },
 
   /* ------------------------------------ */
@@ -56,47 +54,49 @@ const Iacto = React.createClass({
 
   measureAccelAndRemoveGestures(event) {
     if (!this.state.gyroscopeOn && this.state.gestureMode) {
-      if (event.x > 20 || event.y > 20) {
-        this.setState({
-          gestureMode: false,
-          lastPanLocation: [0, 0],
-          lastRotateAngle: 0,
-          lastPinchScale: 1,
-          carouselContCSS: gyroStyles.gyroOn.carouselContainer,
-          carouselCSS: gyroStyles.gyroOn.carousel,
-          swipeCSS: gyroStyles.gyroOn.swipe,
-          panCSS: gyroStyles.gyroOn.pan,
-          pinchCSS: gyroStyles.gyroOn.pinch,
-          rotateCSS: gyroStyles.gyroOn.rotate,
-          pressCSS: gyroStyles.gyroOn.press,
-          tapCSS: gyroStyles.gyroOn.tap,
-        });
-        imperio.emitData(null, {
-          action: 'gyroToggle',
-          gyroState: 'on',
-        });
-        setTimeout(this.startRotation, 3000);
-      }
+      if (event.x > 20 || event.y > 20) this.turnGyroOn();
     } else if (this.state.gyroscopeOn && !this.state.gestureMode) {
-      if (event.x > 20 || event.y > 20) {
-        this.setState({
-          gyroscopeOn: false,
-          carouselContCSS: gyroStyles.gyroOff.carouselContainer,
-          carouselCSS: gyroStyles.gyroOff.carousel,
-          swipeCSS: gyroStyles.gyroOff.swipe,
-          panCSS: gyroStyles.gyroOff.pan,
-          pinchCSS: gyroStyles.gyroOff.pinch,
-          rotateCSS: gyroStyles.gyroOff.rotate,
-          pressCSS: gyroStyles.gyroOff.press,
-          tapCSS: gyroStyles.gyroOff.tap,
-        });
-        imperio.emitData(null, {
-          action: 'gyroToggle',
-          gyroState: 'off',
-        });
-        setTimeout(this.turnGesturesOn, 3000);
-      }
+      if (event.x > 20 || event.y > 20) this.turnGyroOff();
     }
+  },
+
+  turnGyroOn() {
+    this.setState({
+      gestureMode: false,
+      lastPanLocation: [0, 0],
+      lastRotateAngle: 0,
+      lastPinchScale: 1,
+      carouselContCSS: gyroStyles.gyroOn.carouselContainer,
+      carouselCSS: gyroStyles.gyroOn.carousel,
+      swipeCSS: gyroStyles.gyroOn.swipe,
+      panCSS: gyroStyles.gyroOn.pan,
+      pinchCSS: gyroStyles.gyroOn.pinch,
+      rotateCSS: gyroStyles.gyroOn.rotate,
+      pressCSS: gyroStyles.gyroOn.press,
+      tapCSS: gyroStyles.gyroOn.tap,
+    });
+    imperio.emitData(null, {
+      iactoGyro: true,
+    });
+    setTimeout(this.startRotation, 3000);
+  },
+
+  turnGyroOff() {
+    this.setState({
+      gyroscopeOn: false,
+      carouselContCSS: gyroStyles.gyroOff.carouselContainer,
+      carouselCSS: gyroStyles.gyroOff.carousel,
+      swipeCSS: gyroStyles.gyroOff.swipe,
+      panCSS: gyroStyles.gyroOff.pan,
+      pinchCSS: gyroStyles.gyroOff.pinch,
+      rotateCSS: gyroStyles.gyroOff.rotate,
+      pressCSS: gyroStyles.gyroOff.press,
+      tapCSS: gyroStyles.gyroOff.tap,
+    });
+    imperio.emitData(null, {
+      iactoGyro: false,
+    });
+    setTimeout(this.turnGesturesOn, 3000);
   },
 
   turnGesturesOn() {

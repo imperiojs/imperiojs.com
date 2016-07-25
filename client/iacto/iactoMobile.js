@@ -16,6 +16,7 @@ imperio.gesture('pressUp', panDiv);
 imperio.gesture('tap', tapDiv);
 
 function renderIacto() {
+  console.log('in iacto on');
   iacto.style.display = 'flex';
   for (var i = 0; i < gestures.length; i++) {
     gestures[i].style.display = 'flex';
@@ -29,19 +30,20 @@ function handleGyro(event) {
 }
 
 function removeIacto() {
+  console.log('in iacto OFF');  
   iacto.style.display = 'none';
   for (var i = 0; i < gestures.length; i++) {
-    gestures[i].style.display = 'none';
+    gestures[i].style.display = 'flex';
   }
   imperio.emitAcceleration.removeGravity();
   imperio.emitGyroscope.remove(handleGyro);
 } 
 
-function turnOnGyro() {
-  var timing = 2, blue = 'rgb(0, 37, 105)', gold = 'rgb(255, 206, 0)';  
+function turnGyroOn() {
+  console.log('gyro on');
+  var timing = 2, blue = 'rgb(0, 37, 105)', gold = 'rgb(255, 206, 0)', gyroSize= '1.5em';  
   for (var i = 0; i < gestures.length; i++) {
     gestures[i].style.transition = `height ${timing}s, border ${timing}s, color ${timing}s`;
-    gestures[i].style.height = '0px';
     gestures[i].style.borderColor = blue;
     gestures[i].style.color = blue;
   }
@@ -53,11 +55,11 @@ function turnOnGyro() {
   angles.style.marginTop = '25px';
 }
 
-function turnOffGyro() {
+function turnGyroOff() {
+  console.log('gyro off');  
   var timing = 2, blue = 'rgb(0, 37, 105)', gold = 'rgb(255, 206, 0)';  
   for (var i = 0; i < gestures.length; i++) {
     gestures[i].style.transition = `height ${timing}s, border ${timing}s, color ${timing}s`;
-    gestures[i].style.height = '4em';
     gestures[i].style.borderColor = gold;
     gestures[i].style.color = gold;
   }
@@ -70,13 +72,12 @@ function turnOffGyro() {
 }
 
 // function setDelayedStyleOn() {
-//   // .style.display = 'block';
+//   .style.display = 'block';
 // }
 
-// function setDelayedStyleOff() {
-//   var timing = 0.25;
-//   for (var i = 0; i < gestures.length; i++) {
-//     gestures[i].style.transition = `height ${timing}s, border ${timing}s, color ${timing}s`;
-//     // gestures[i].style.display = 'flex';
-//   }
-// }
+function setDelayedStyleOff() {
+  var timing = 0.25;
+  for (var i = 0; i < gestures.length; i++) {
+    gestures[i].style.transition = `height ${timing}s, border ${timing}s, color ${timing}s`;
+  }
+}
