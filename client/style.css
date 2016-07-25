@@ -9,8 +9,8 @@ body {
 #connection-wrap {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
+  left: 40%;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   z-index: 1040;
@@ -22,6 +22,9 @@ body {
   font-family: "Helvetica", sans-serif;
   font-size: 18px;
   line-height: 20px;
+}
+.description {
+   font-size: 16px;
 }
 .visibility-list {
   position: fixed;
@@ -65,8 +68,7 @@ div.demo-box {
 #caster-wrap {
   position: relative;
   background-color: lightblue;
-  margin: 0 auto;
-  margin-bottom: 60px;
+  margin: 40px auto 40px;
   height: 80vh;
   display: flex;
   justify-content: center;

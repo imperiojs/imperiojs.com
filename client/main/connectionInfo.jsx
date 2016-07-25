@@ -21,11 +21,17 @@ const ConnectionInfo = React.createClass({
         connections.push(<p key={key}>{key + ': ' + this.props.connections[key]}</p>);
       }
     }
+    let displayConnectionStatus;
+    if (connectionKeys.length > 1) {
+      displayConnectionStatus = <p>Connected! ({imperio.nonce})</p>;
+    }
+    else {
+      displayConnectionStatus = <p>Connect: {imperio.nonce}</p>;
+    }
     return (
       <div id="connection-wrap">
         <div id="connection">
-          {connections}
-          <p>Connect: {imperio.nonce}</p>
+          {displayConnectionStatus}
         </div>
       </div>
     );

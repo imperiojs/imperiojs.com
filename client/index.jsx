@@ -15,6 +15,7 @@ const App = React.createClass({
       connections: {},
       isVisible: {
         iacto: false,
+        iactoGyro: false,
         umbra: false,
         fluctus: false,
       },
@@ -25,7 +26,7 @@ const App = React.createClass({
     console.log('in componentDidMount!');
     // THIS NEEDS TO BE CALLED RIGHT AFTER IMPERIO IS IMPORTED!
     // imperio.listenerRoomSetup();
-    // imperio.roomUpdate(this.updateConnectionInfo);
+    imperio.roomUpdate(this.updateConnectionInfo);
   },
 
   /* ------------------------------------ */
@@ -34,12 +35,14 @@ const App = React.createClass({
 
   /* Invoked when listenerRoomSetup / roomUpdate fires
    * Logs the updated state of the socket room
+   * Emits data for the mobile client to update UI
    */
   updateConnectionInfo(roomData) {
     console.log('Room Updated!', roomData);
     if (roomData) {
       this.setState({ connections: roomData.sockets });
     }
+    imperio.emitData(null, { currentVisibilityState: this.state.isVisible });
   },
 
   /**
@@ -66,10 +69,10 @@ const App = React.createClass({
       if (update.hasOwnProperty(example)) {
         if (update[example] === true) {
           console.log(`emitting start_${example}`);
-          imperio.emitData(null, { action: `start_${example}` });
+          imperio.emitData(null, { [example]: true });
         } else {
           console.log(`emitting stop_${example}`);
-          imperio.emitData(null, { action: `stop_${example}` });
+          imperio.emitData(null, { [example]: false });
         }
       }
     }
@@ -80,7 +83,6 @@ const App = React.createClass({
   /* ------------------------------------ */
 
   render() {
-    const clickedState = `ClickedState: ${this.state.clicked}`;
     return (
       <div id="app">
         <VisibilityBox isVisible={this.state.isVisible} />
@@ -93,10 +95,6 @@ const App = React.createClass({
         <Umbra
           visibilityUpdate={this.visibilityUpdate}
           visibilityId={'umbra'}
-        />
-        <Umbra
-          visibilityUpdate={this.visibilityUpdate}
-          visibilityId={'fluctus'}
         />
       </div>
     );
