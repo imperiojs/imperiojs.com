@@ -20,6 +20,12 @@ h1 {
   height:23.5em;
 }
 
+#base {
+  display:flex;
+  background-image: url("http://theinspirationgrid.com/wp-content/uploads/2015/07/branding-imperio-08-805x805.jpg");
+  flex-grow:0.8;
+}
+
 #mobile-controls {
   display:flex;
   justify-content:center;
