@@ -16,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0",
-    "imperio": "^0.2.2"
+    "imperio": "^0.2.8"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.1.2",

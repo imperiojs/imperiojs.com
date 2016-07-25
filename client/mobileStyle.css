@@ -1,0 +1,78 @@
+body {
+  font-family: "Helvetica", sans-serif;
+  margin: 1px;
+  overflow:hidden;
+  background-color:rgb(0, 37, 105);
+}
+
+h1 {
+  font-weight:300;
+  width:100%;
+  margin:0.1em 0 0.2em 0;
+  color:rgb(255, 206, 0);
+  text-align:center;
+}
+
+#mobile-container {
+  display: flex;
+  flex-direction: row;
+  margin:0.2em 0.3em;
+  height:23.5em;
+}
+
+#mobile-controls {
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  flex-grow:2.5;
+}
+
+#scroll-bar {
+  margin:0.2em 0;
+  flex-grow:1;
+  border-radius:1em;
+  border:3px solid rgb(255, 206, 0);  
+}
+
+#scroll-bar:hover {
+  margin:0.2em 0;
+  flex-grow:1;
+  border-radius:1em;
+  background-color:rgb(255, 206, 0);
+  border:3px solid rgb(255, 206, 0);  
+}
+
+#iactoMobile {
+  margin:0 auto;
+  width:95%;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  align-items: center;
+  text-align:center;
+  color:rgb(255, 206, 0);
+  height:95vh !important;
+}
+
+.gestures {
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  width:100%;
+  flex-grow:1;
+  font-size:1.4em;
+  transition:height 0.25s;
+  border:3px solid rgb(255, 206, 0);
+}
+
+.gestures:hover {
+  background-color:rgb(255, 206, 0);
+  color:rgb(0, 37, 105) !important;
+  /*height:4em;*/
+  flex-grow:2.5;
+}
+
+#umbraMobile {
+  display:none;
+  background-color: lightblue;
+}
