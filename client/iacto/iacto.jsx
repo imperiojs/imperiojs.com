@@ -2,6 +2,7 @@ const React = require('react');
 const Gestures = require('./gestures.jsx');
 const VisibilityDetector = require('./../main/visibilityDetector.jsx');
 const gyroStyles = require('./utils/styles.jsx');
+const IactoDescription = require('./iactoDescription.jsx');
 
 const Iacto = React.createClass({
   propTypes: {
@@ -258,6 +259,7 @@ const Iacto = React.createClass({
     }
     return (
       <div>
+        <IactoDescription />
         <div id="iacto-container">
           <p id="gesture-id">{this.state.currentGesture ? this.state.currentGesture : 'imperioJS'}</p>
           <Gestures
