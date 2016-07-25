@@ -17,21 +17,21 @@ var actual = {};
 
 function renderUmbra() {
   umbra.style.display = 'flex';
-  for (var i = 0; i < gestures.length; i++) {
-    gestures[i].style.display = 'flex';
-  }
+  // for (var i = 0; i < gestures.length; i++) {
+  //   gestures[i].style.display = 'flex';
+  // }
   document.body.addEventListener('touchend', emitNewZeroValues);
   imperio.emitGyroscope.start(printGyroData);
 }
 
 function removeUmbra() {
   umbra.style.display = 'none';
-  for (var i = 0; i < gestures.length; i++) {
-    gestures[i].style.display = 'none';
-  }
+  // for (var i = 0; i < gestures.length; i++) {
+  //   gestures[i].style.display = 'none';
+  // }
   document.body.removeEventListener('touchend', emitNewZeroValues);
   imperio.emitGyroscope.remove(printGyroData);
-} 
+}
 
 function emitNewZeroValues() {
   if (orient.alpha > 180) orient.alpha = orient.alpha - 360;
@@ -64,8 +64,9 @@ function printGyroData(gyroObj) {
 }
 
 function tapFeedback() {
+  var oldColor = document.body.style.backgroundColor;
   document.body.style.backgroundColor = 'lightgreen';
   setTimeout(function() {
-    document.body.style.backgroundColor = 'lightblue';
+    document.body.style.backgroundColor = oldColor;
   }, 200);
 }

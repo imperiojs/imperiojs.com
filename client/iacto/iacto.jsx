@@ -257,32 +257,35 @@ const Iacto = React.createClass({
       }
     }
     return (
-      <div id="iacto-container">
-        <p id="gesture-id">{this.state.currentGesture ? this.state.currentGesture : 'imperioJS'}</p>
-        <Gestures
-          currentPanLocation={this.state.currentPanLocation}
-          currentRotateAngle={this.state.currentRotateAngle}
-          currentPinchScale={this.state.currentPinchScale}
-          swipeCSS={this.state.swipeCSS}
-          panCSS={this.state.panCSS}
-          pinchCSS={this.state.pinchCSS}
-          rotateCSS={this.state.rotateCSS}
-          pressCSS={this.state.pressCSS}
-          tapCSS={this.state.tapCSS}
-          carouselContCSS={this.state.carouselContCSS}
-          carouselCSS={this.state.carouselCSS}
-          gyroscopeOn={this.state.gyroscopeOn}
-          connections={this.props.connections}
-          visibilityUpdate={this.props.visibilityUpdate}
-          visibilityId={this.props.visibilityId}
-        />
-        <VisibilityDetector
-          visibilityUpdate={this.props.visibilityUpdate}
-          visibilityId={this.props.visibilityId}
-        />
-        <p id="instructions">{instructions}</p>
+      <div>
+        <div id="iacto-container">
+          <p id="gesture-id">{this.state.currentGesture ? this.state.currentGesture : 'imperioJS'}</p>
+          <Gestures
+            currentPanLocation={this.state.currentPanLocation}
+            currentRotateAngle={this.state.currentRotateAngle}
+            currentPinchScale={this.state.currentPinchScale}
+            swipeCSS={this.state.swipeCSS}
+            panCSS={this.state.panCSS}
+            pinchCSS={this.state.pinchCSS}
+            rotateCSS={this.state.rotateCSS}
+            pressCSS={this.state.pressCSS}
+            tapCSS={this.state.tapCSS}
+            carouselContCSS={this.state.carouselContCSS}
+            carouselCSS={this.state.carouselCSS}
+            gyroscopeOn={this.state.gyroscopeOn}
+            connections={this.props.connections}
+            visibilityUpdate={this.props.visibilityUpdate}
+            visibilityId={this.props.visibilityId}
+          />
+          <VisibilityDetector
+            visibilityUpdate={this.props.visibilityUpdate}
+            visibilityId={this.props.visibilityId}
+          />
+          <p id="instructions">{instructions}</p>
+        </div>
+        <div>dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude dude
+        </div>
       </div>
-
     );
   },
 });

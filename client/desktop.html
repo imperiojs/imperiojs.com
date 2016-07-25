@@ -98,6 +98,7 @@
   imperio.panListener(handleScrollPan);
 
   function handleScrollPan(event) {
+    console.log('handleScrollPan event');
     if (event.scroll) {
       if (event.additionalEvent === 'pandown') window.scrollBy(0, 20);
       if (event.additionalEvent === 'panup') window.scrollBy(0, -20);

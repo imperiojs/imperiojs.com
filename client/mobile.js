@@ -15,42 +15,50 @@ var browserState = {
 imperio.dataListener(updateBrowserState);
 
 function updateBrowserState(browserViewData) {
-  console.log('state update recevied:');
-  console.log(browserViewData);
-  if (browserViewData.iacto) browserState.iacto.on = true;
-  else browserState.iacto.on = false;
-  if (browserViewData.iactoGyro) browserState.iacto.gyro = true;
-  else browserState.iacto.gyro = false;
-  if (browserViewData.umbra) browserState.umbra = true;
-  else browserState.umbra = false;
-  if (browserViewData.fluctus) browserState.fluctus = true;
-  else browserState.fluctus = false;
-  console.log(browserState);
-  renderMobile();
+  if (browserViewData.hasOwnProperty('iacto') ||
+      browserViewData.hasOwnProperty('umbra') ||
+      browserViewData.hasOwnProperty('fluctus')) {
+    console.log('state update recevied:');
+    console.log('browserViewData: ' + JSON.stringify(browserViewData, null, 2));
+    if (browserViewData.iacto) browserState.iacto.on = true;
+    else browserState.iacto.on = false;
+    if (browserViewData.iactoGyro) browserState.iacto.gyro = true;
+    else browserState.iacto.gyro = false;
+    if (browserViewData.umbra) browserState.umbra = true;
+    else browserState.umbra = false;
+    if (browserViewData.fluctus) browserState.fluctus = true;
+    else browserState.fluctus = false;
+    console.log('browserState: ' + JSON.stringify(browserState, null, 2));
+    renderMobile();
+  }
 }
 
 // turns on and off mobile emitters conditionally
 function renderMobile() {
-  if (browserState.iacto.on) {
-    console.log('rendering iacto');
-    renderIacto();
-    removeBase();
-    if (!browserState.iacto.gyro) turnGyroOff();
-    else turnGyroOn();
-  } else removeIacto();
+  if (browserState.hasOwnProperty('iacto')) {
+    if (browserState.iacto.on) {
+      console.log('rendering iacto');
+      renderIacto();
+      removeBase();
+      if (!browserState.iacto.gyro) turnGyroOff();
+      else turnGyroOn();
+    } else
+      removeIacto();
 
-  if (browserState.umbra) {
-    renderUmbra();
-    removeBase();
-  } else removeUmbra();
+    if (browserState.umbra) {
+      renderUmbra();
+      removeBase();
+    } else
+      removeUmbra();
 
-  // if (browserState.fluctus) {
-  //   renderFluctus();
-  //   removeBase();
-  // } else removeFluctus();
+    // if (browserState.fluctus) {
+    //   renderFluctus();
+    //   removeBase();
+    // } else removeFluctus();
 
-  if (!browserState.iacto.on && !browserState.umbra && !browserState.fluctus) {
-    renderBase();
+    if (!browserState.iacto.on && !browserState.umbra && !browserState.fluctus) {
+      renderBase();
+    }
   }
 }
 

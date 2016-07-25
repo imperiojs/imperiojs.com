@@ -19,7 +19,7 @@ function renderIacto() {
   console.log('in iacto on');
   iacto.style.display = 'flex';
   for (var i = 0; i < gestures.length; i++) {
-    gestures[i].style.display = 'flex';
+    document.getElementById(gestures[i].id).style.display = 'flex';
   }
   imperio.emitAcceleration.gravity();
   imperio.emitGyroscope.start(handleGyro);
@@ -30,18 +30,18 @@ function handleGyro(event) {
 }
 
 function removeIacto() {
-  console.log('in iacto OFF');  
+  console.log('in iacto OFF');
   iacto.style.display = 'none';
   for (var i = 0; i < gestures.length; i++) {
-    gestures[i].style.display = 'flex';
+    document.getElementById(gestures[i].id).style.display = 'none';
   }
   imperio.emitAcceleration.removeGravity();
   imperio.emitGyroscope.remove(handleGyro);
-} 
+}
 
 function turnGyroOn() {
   console.log('gyro on');
-  var timing = 2, blue = 'rgb(0, 37, 105)', gold = 'rgb(255, 206, 0)', gyroSize= '1.5em';  
+  var timing = 2, blue = 'rgb(0, 37, 105)', gold = 'rgb(255, 206, 0)', gyroSize= '1.5em';
   for (var i = 0; i < gestures.length; i++) {
     gestures[i].style.transition = `height ${timing}s, border ${timing}s, color ${timing}s`;
     gestures[i].style.borderColor = blue;
@@ -56,8 +56,8 @@ function turnGyroOn() {
 }
 
 function turnGyroOff() {
-  console.log('gyro off');  
-  var timing = 2, blue = 'rgb(0, 37, 105)', gold = 'rgb(255, 206, 0)';  
+  console.log('gyro off');
+  var timing = 2, blue = 'rgb(0, 37, 105)', gold = 'rgb(255, 206, 0)';
   for (var i = 0; i < gestures.length; i++) {
     gestures[i].style.transition = `height ${timing}s, border ${timing}s, color ${timing}s`;
     gestures[i].style.borderColor = gold;
