@@ -3,6 +3,7 @@ const Gestures = require('./gestures.jsx');
 const VisibilityDetector = require('./../main/visibilityDetector.jsx');
 const gyroStyles = require('./utils/styles.jsx');
 const IactoDescription = require('./iactoDescription.jsx');
+const IactoDescription2 = require('./iactoDescription2.jsx');
 
 const Iacto = React.createClass({
   propTypes: {
@@ -285,6 +286,7 @@ const Iacto = React.createClass({
           />
           <p id="instructions">{instructions}</p>
         </div>
+        <IactoDescription2 />
       </div>
     );
   },
