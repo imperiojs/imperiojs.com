@@ -5,6 +5,8 @@ const browserify = require('browserify');
 const watchify = require('watchify');
 const babelify = require('babelify');
 const nodemon = require('gulp-nodemon');
+const sourcemaps = require('gulp-sourcemaps');
+const uglify = require('gulp-uglify');
 
 gulp.task('browserify', scripts)
     .task('serve', serve);
@@ -34,6 +36,8 @@ function scripts() {
     })
     // Create the initial bundle when starting the task
     .bundle()
+    // .pipe(uglify())
+    // .pipe(sourcemaps.write())
     .on('error', (err) => {
       console.log('Error with compiling components', err.message);
     })
