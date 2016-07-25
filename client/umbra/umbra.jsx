@@ -1,6 +1,7 @@
 const React = require('react');
 const Caster = require('./caster.jsx');
 const UmbraDescription = require('./umbraDescription.jsx');
+const UmbraDescription2 = require('./umbraDescription2.jsx');
 
 const Umbra = React.createClass({
   propTypes: {
@@ -78,12 +79,13 @@ const Umbra = React.createClass({
   render() {
     return (
       <div className="demo-box">
+        <UmbraDescription />
         <Caster
           textShadows={this.state.textShadows}
           visibilityUpdate={this.props.visibilityUpdate}
           visibilityId={this.props.visibilityId}
         />
-        <UmbraDescription />
+        <UmbraDescription2 />
       </div>
     );
   },

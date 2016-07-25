@@ -22,7 +22,7 @@ function updateBrowserState(browserViewData) {
     console.log('browserViewData: ' + JSON.stringify(browserViewData, null, 2));
     if (browserViewData.iacto) browserState.iacto.on = true;
     else browserState.iacto.on = false;
-    if (browserViewData.iactoGyro) browserState.iacto.gyro = true;
+    if (browserViewData.iacto.gyro) browserState.iacto.gyro = true;
     else browserState.iacto.gyro = false;
     if (browserViewData.umbra) browserState.umbra = true;
     else browserState.umbra = false;

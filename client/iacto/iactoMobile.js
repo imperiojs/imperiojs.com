@@ -22,10 +22,10 @@ function renderIacto() {
     document.getElementById(gestures[i].id).style.display = 'flex';
   }
   imperio.emitAcceleration.gravity();
-  imperio.emitGyroscope.start(handleGyro);
 }
 
 function handleGyro(event) {
+  console.log('in handlegyro- gyro data on!');
   angles.innerHTML = `${event.alpha}&#176;`;
 }
 
@@ -41,6 +41,7 @@ function removeIacto() {
 
 function turnGyroOn() {
   console.log('gyro on');
+  imperio.emitGyroscope.start(handleGyro);
   var timing = 2, blue = 'rgb(0, 37, 105)', gold = 'rgb(255, 206, 0)', gyroSize= '1.5em';
   for (var i = 0; i < gestures.length; i++) {
     gestures[i].style.transition = `height ${timing}s, border ${timing}s, color ${timing}s`;

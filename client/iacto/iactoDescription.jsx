@@ -14,7 +14,7 @@ const IactoDescription = React.createClass({
         <p>Mobile:</p>
         <pre>
           imperio.emitRoomSetup();<br />
-          imperio.gesture('pan', DOMElement);          
+          imperio.gesture('pan', DOMElement);
         </pre>
         <p>Desktop:</p>
         <pre>

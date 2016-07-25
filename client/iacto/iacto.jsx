@@ -77,7 +77,7 @@ const Iacto = React.createClass({
       tapCSS: gyroStyles.gyroOn.tap,
     });
     imperio.emitData(null, {
-      iactoGyro: true,
+      iacto: { on: true, gyro: true },
     });
     setTimeout(this.startRotation, 3000);
   },
@@ -95,7 +95,7 @@ const Iacto = React.createClass({
       tapCSS: gyroStyles.gyroOff.tap,
     });
     imperio.emitData(null, {
-      iactoGyro: false,
+      iacto: { on: true, gyro: false },
     });
     setTimeout(this.turnGesturesOn, 3000);
   },
