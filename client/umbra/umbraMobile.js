@@ -2,6 +2,7 @@ var alphaBox = document.getElementById('alpha');
 var betaBox  = document.getElementById('beta');
 var gammaBox = document.getElementById('gamma');
 var content  = document.getElementById('content');
+var umbra  = document.getElementById('umbraMobile');
 var zero = {
   alpha: 0,
   beta: 0,
@@ -13,6 +14,24 @@ var orient = {
   gamma: 0,
 };
 var actual = {};
+
+function renderUmbra() {
+  umbra.style.display = 'flex';
+  // for (var i = 0; i < gestures.length; i++) {
+  //   gestures[i].style.display = 'flex';
+  // }
+  document.body.addEventListener('touchend', emitNewZeroValues);
+  imperio.emitGyroscope.start(printGyroData);
+}
+
+function removeUmbra() {
+  umbra.style.display = 'none';
+  // for (var i = 0; i < gestures.length; i++) {
+  //   gestures[i].style.display = 'none';
+  // }
+  document.body.removeEventListener('touchend', emitNewZeroValues);
+  imperio.emitGyroscope.remove(printGyroData);
+}
 
 function emitNewZeroValues() {
   if (orient.alpha > 180) orient.alpha = orient.alpha - 360;
@@ -45,8 +64,9 @@ function printGyroData(gyroObj) {
 }
 
 function tapFeedback() {
+  var oldColor = document.body.style.backgroundColor;
   document.body.style.backgroundColor = 'lightgreen';
   setTimeout(function() {
-    document.body.style.backgroundColor = 'lightblue';
+    document.body.style.backgroundColor = oldColor;
   }, 200);
 }

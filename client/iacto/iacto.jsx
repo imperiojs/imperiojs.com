@@ -2,6 +2,8 @@ const React = require('react');
 const Gestures = require('./gestures.jsx');
 const VisibilityDetector = require('./../main/visibilityDetector.jsx');
 const gyroStyles = require('./utils/styles.jsx');
+const IactoDescription = require('./iactoDescription.jsx');
+const IactoDescription2 = require('./iactoDescription2.jsx');
 
 const Iacto = React.createClass({
   propTypes: {
@@ -46,8 +48,6 @@ const Iacto = React.createClass({
     imperio.tapListener(this.handleTap);
     imperio.gyroscopeListener(this.gyroFunctions);
     imperio.accelerationListener(this.measureAccelAndRemoveGestures);
-    // imperio.pressListener(this.handlePress);
-    // imperio.pressUpListener(this.handlePressUp);
   },
 
   /* ------------------------------------ */
@@ -56,47 +56,49 @@ const Iacto = React.createClass({
 
   measureAccelAndRemoveGestures(event) {
     if (!this.state.gyroscopeOn && this.state.gestureMode) {
-      if (event.x > 20 || event.y > 20) {
-        this.setState({
-          gestureMode: false,
-          lastPanLocation: [0, 0],
-          lastRotateAngle: 0,
-          lastPinchScale: 1,
-          carouselContCSS: gyroStyles.gyroOn.carouselContainer,
-          carouselCSS: gyroStyles.gyroOn.carousel,
-          swipeCSS: gyroStyles.gyroOn.swipe,
-          panCSS: gyroStyles.gyroOn.pan,
-          pinchCSS: gyroStyles.gyroOn.pinch,
-          rotateCSS: gyroStyles.gyroOn.rotate,
-          pressCSS: gyroStyles.gyroOn.press,
-          tapCSS: gyroStyles.gyroOn.tap,
-        });
-        imperio.emitData(null, {
-          action: 'gyroToggle',
-          gyroState: 'on',
-        });
-        setTimeout(this.startRotation, 3000);
-      }
+      if (event.x > 20 || event.y > 20) this.turnGyroOn();
     } else if (this.state.gyroscopeOn && !this.state.gestureMode) {
-      if (event.x > 20 || event.y > 20) {
-        this.setState({
-          gyroscopeOn: false,
-          carouselContCSS: gyroStyles.gyroOff.carouselContainer,
-          carouselCSS: gyroStyles.gyroOff.carousel,
-          swipeCSS: gyroStyles.gyroOff.swipe,
-          panCSS: gyroStyles.gyroOff.pan,
-          pinchCSS: gyroStyles.gyroOff.pinch,
-          rotateCSS: gyroStyles.gyroOff.rotate,
-          pressCSS: gyroStyles.gyroOff.press,
-          tapCSS: gyroStyles.gyroOff.tap,
-        });
-        imperio.emitData(null, {
-          action: 'gyroToggle',
-          gyroState: 'off',
-        });
-        setTimeout(this.turnGesturesOn, 3000);
-      }
+      if (event.x > 20 || event.y > 20) this.turnGyroOff();
     }
+  },
+
+  turnGyroOn() {
+    this.setState({
+      gestureMode: false,
+      lastPanLocation: [0, 0],
+      lastRotateAngle: 0,
+      lastPinchScale: 1,
+      carouselContCSS: gyroStyles.gyroOn.carouselContainer,
+      carouselCSS: gyroStyles.gyroOn.carousel,
+      swipeCSS: gyroStyles.gyroOn.swipe,
+      panCSS: gyroStyles.gyroOn.pan,
+      pinchCSS: gyroStyles.gyroOn.pinch,
+      rotateCSS: gyroStyles.gyroOn.rotate,
+      pressCSS: gyroStyles.gyroOn.press,
+      tapCSS: gyroStyles.gyroOn.tap,
+    });
+    imperio.emitData(null, {
+      iacto: { on: true, gyro: true },
+    });
+    setTimeout(this.startRotation, 3000);
+  },
+
+  turnGyroOff() {
+    this.setState({
+      gyroscopeOn: false,
+      carouselContCSS: gyroStyles.gyroOff.carouselContainer,
+      carouselCSS: gyroStyles.gyroOff.carousel,
+      swipeCSS: gyroStyles.gyroOff.swipe,
+      panCSS: gyroStyles.gyroOff.pan,
+      pinchCSS: gyroStyles.gyroOff.pinch,
+      rotateCSS: gyroStyles.gyroOff.rotate,
+      pressCSS: gyroStyles.gyroOff.press,
+      tapCSS: gyroStyles.gyroOff.tap,
+    });
+    imperio.emitData(null, {
+      iacto: { on: true, gyro: false },
+    });
+    setTimeout(this.turnGesturesOn, 3000);
   },
 
   turnGesturesOn() {
@@ -257,32 +259,35 @@ const Iacto = React.createClass({
       }
     }
     return (
-      <div id="iacto-container">
-        <p id="gesture-id">{this.state.currentGesture ? this.state.currentGesture : 'imperioJS'}</p>
-        <Gestures
-          currentPanLocation={this.state.currentPanLocation}
-          currentRotateAngle={this.state.currentRotateAngle}
-          currentPinchScale={this.state.currentPinchScale}
-          swipeCSS={this.state.swipeCSS}
-          panCSS={this.state.panCSS}
-          pinchCSS={this.state.pinchCSS}
-          rotateCSS={this.state.rotateCSS}
-          pressCSS={this.state.pressCSS}
-          tapCSS={this.state.tapCSS}
-          carouselContCSS={this.state.carouselContCSS}
-          carouselCSS={this.state.carouselCSS}
-          gyroscopeOn={this.state.gyroscopeOn}
-          connections={this.props.connections}
-          visibilityUpdate={this.props.visibilityUpdate}
-          visibilityId={this.props.visibilityId}
-        />
-        <VisibilityDetector
-          visibilityUpdate={this.props.visibilityUpdate}
-          visibilityId={this.props.visibilityId}
-        />
-        <p id="instructions">{instructions}</p>
+      <div>
+        <IactoDescription />
+        <div id="iacto-container">
+          <p id="gesture-id">{this.state.currentGesture ? this.state.currentGesture : 'imperioJS'}</p>
+          <Gestures
+            currentPanLocation={this.state.currentPanLocation}
+            currentRotateAngle={this.state.currentRotateAngle}
+            currentPinchScale={this.state.currentPinchScale}
+            swipeCSS={this.state.swipeCSS}
+            panCSS={this.state.panCSS}
+            pinchCSS={this.state.pinchCSS}
+            rotateCSS={this.state.rotateCSS}
+            pressCSS={this.state.pressCSS}
+            tapCSS={this.state.tapCSS}
+            carouselContCSS={this.state.carouselContCSS}
+            carouselCSS={this.state.carouselCSS}
+            gyroscopeOn={this.state.gyroscopeOn}
+            connections={this.props.connections}
+            visibilityUpdate={this.props.visibilityUpdate}
+            visibilityId={this.props.visibilityId}
+          />
+          <VisibilityDetector
+            visibilityUpdate={this.props.visibilityUpdate}
+            visibilityId={this.props.visibilityId}
+          />
+          <p id="instructions">{instructions}</p>
+        </div>
+        <IactoDescription2 />
       </div>
-
     );
   },
 });
