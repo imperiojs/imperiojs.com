@@ -1,7 +1,7 @@
 {
-  "name": "umbra",
+  "name": "imperiojs.com",
   "version": "1.0.0",
-  "description": "",
+  "description": "Main display website for examples using imperio javascript library",
   "main": "index.js",
   "scripts": {
     "start": "node_modules/.bin/gulp",
