@@ -9,8 +9,8 @@ body {
 #connection-wrap {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
+  left: 40%;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   z-index: 1040;
