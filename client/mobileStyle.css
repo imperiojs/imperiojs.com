@@ -19,6 +19,28 @@ h1 {
   text-align:center;
 }
 
+#mobile-homepage {
+  color: white;
+  margin: 5%;
+}
+#mobile-homepage h3 {
+  text-align: center;
+}
+#mobile-homepage a {
+  color: yellow;
+}
+#mobile-homepage-logos {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: space-between;
+}
+#mobile-homepage-logos #npmL {
+  display: flex;
+  align-items: center;
+}
+
 #app-wrap {
   display: flex;
   flex-direction: column;
