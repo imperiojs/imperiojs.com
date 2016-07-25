@@ -83,7 +83,6 @@ const App = React.createClass({
   /* ------------------------------------ */
 
   render() {
-    const clickedState = `ClickedState: ${this.state.clicked}`;
     return (
       <div id="app">
         <VisibilityBox isVisible={this.state.isVisible} />
@@ -96,10 +95,6 @@ const App = React.createClass({
         <Umbra
           visibilityUpdate={this.visibilityUpdate}
           visibilityId={'umbra'}
-        />
-        <Umbra
-          visibilityUpdate={this.visibilityUpdate}
-          visibilityId={'fluctus'}
         />
       </div>
     );

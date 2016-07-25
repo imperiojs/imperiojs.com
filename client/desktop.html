@@ -38,7 +38,7 @@
 
   <div id="home" class="jumbotron">
       <div class="container">
-        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Symbol_from_The_Incredibles_logo.svg" alt="imperiojs">
+        <img class="logo" src="./img/imperio-logo-transparent.png" alt="imperiojs">
         <p>A library that bridges the gap between mobile and desktop</p>
         <p><a class="btn btn-danger btn-lg" href="https://github.com/imperiojs/imperio" role="button">Get Started &raquo;</a></p>
       </div>
@@ -93,7 +93,7 @@
 <script src='./dist/imperio.min.js'></script>
 <script type="text/javascript">
   imperio.listenerRoomSetup();
-  imperio.roomUpdate(function(roomData) {console.log('roomData::::::::', roomData)});
+  imperio.roomUpdate(function(roomData) {console.log('roomData: ', roomData)});
 
   imperio.panListener(handleScrollPan);
 
