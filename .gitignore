@@ -9,3 +9,5 @@ node_modules
 jspm_packages
 client/lib
 client/build/bundle.js
+client/build/*
+bundle.js
