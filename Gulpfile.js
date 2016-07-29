@@ -31,6 +31,7 @@ function scripts() {
       .on('error', (err) => {
         console.log('Error with compiling components', err.message);
       })
+      .pipe(source('bundle.js'))
       .pipe(streamify(uglify('./client/build/')))
       .pipe(gulp.dest('./client/build/'))
       .pipe(notify('Built Bundle'));
