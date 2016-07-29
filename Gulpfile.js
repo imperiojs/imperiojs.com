@@ -53,4 +53,8 @@ function serve() {
   });
 }
 
-gulp.task('default', ['browserify', 'serve']);
+gulp.task('apply-prod-environment', () => {
+  process.env.NODE_ENV = 'production';
+});
+
+gulp.task('default', ['apply-prod-environment', 'browserify', 'serve']);
