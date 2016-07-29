@@ -5,8 +5,10 @@ const browserify = require('browserify');
 const watchify = require('watchify');
 const babelify = require('babelify');
 const nodemon = require('gulp-nodemon');
-const sourcemaps = require('gulp-sourcemaps');
+// const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
+const streamify = require('gulp-streamify');
+const notify = require('gulp-notify');
 
 gulp.task('browserify', scripts)
     .task('serve', serve);
@@ -24,25 +26,24 @@ function scripts() {
 
   return watcher
     .on('update', () => {
-      const updateStart = Date.now();
       console.log('Updating!');
       watcher.bundle()
       .on('error', (err) => {
         console.log('Error with compiling components', err.message);
       })
-      .pipe(source('bundle.js'))
-      .pipe(gulp.dest('./client/build/'));
-      console.log('Updated!', `${Date.now() - updateStart}ms`);
+      .pipe(streamify(uglify('./client/build/')))
+      .pipe(gulp.dest('./client/build/'))
+      .pipe(notify('Built Bundle'));
     })
     // Create the initial bundle when starting the task
     .bundle()
-    // .pipe(uglify())
-    // .pipe(sourcemaps.write())
     .on('error', (err) => {
       console.log('Error with compiling components', err.message);
     })
     .pipe(source('bundle.js'))
-    .pipe(gulp.dest('./client/build/'));
+    .pipe(streamify(uglify('./client/build/')))
+    .pipe(gulp.dest('./client/build/'))
+    .pipe(notify('Built Bundle'));
 }
 
 function serve() {
